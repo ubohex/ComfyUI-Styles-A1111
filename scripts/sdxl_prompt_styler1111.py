@@ -6,7 +6,7 @@ from modules.ui_components import FormRow, FormColumn, FormGroup, ToolButton
 import json
 import os
 import random
-stylespath = ""
+stylespath = "data"
 
 
 def get_json_content(file_path):
