@@ -6,7 +6,7 @@ from modules.ui_components import FormRow, FormColumn, FormGroup, ToolButton
 import json
 import os
 import random
-stylespath = "data"
+stylespath = "\data"
 
 
 def get_json_content(file_path):
@@ -119,7 +119,7 @@ class StyleSelectorXL(scripts.Script):
         return scripts.AlwaysVisible
 
     def ui(self, is_img2img):
-        enabled = getattr(shared.opts, "enable_styleselector_by_default", True)
+        enabled = getattr(shared.opts, "enable_styleselector_by_default", False)
         with gr.Group():
             with gr.Accordion("SDXL Styles", open=enabled):
                 with FormRow():
@@ -187,7 +187,7 @@ class StyleSelectorXL(scripts.Script):
                     styles[i] if randomizeEach or allstyles else styles[0], prompt)
                 p.all_negative_prompts[i] = negativePrompt
 
-        p.extra_generation_params["Style Selector Enabled"] = True
+        p.extra_generation_params["Style Selector Enabled"] = False
         p.extra_generation_params["Style Selector Randomize"] = randomize
         p.extra_generation_params["Style Selector Style"] = style
 
